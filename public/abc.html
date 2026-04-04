@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akshat Kansara – Resume</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 9.5pt;
+        line-height: 1.45;
+        color: #1a1a1a;
+        background: #fff;
+        width: 8.5in;
+        margin: 0 auto;
+        padding: 0.5in 0.6in;
+      }
+
+      a {
+        color: #1a1a1a;
+        text-decoration: none;
+      }
+
+      /* ── Header ── */
+      .header {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: 20pt;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #0f1c2e;
+        margin-bottom: 3px;
+      }
+      .header .role {
+        font-size: 10pt;
+        color: #444;
+        margin-bottom: 6px;
+        letter-spacing: 0.5px;
+      }
+      .header .contact {
+        font-size: 8.5pt;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 3px 0;
+      }
+      .header .contact span {
+        padding: 0 8px;
+        border-right: 1px solid #bbb;
+      }
+      .header .contact span:last-child {
+        border-right: none;
+      }
+
+      /* ── Dividers ── */
+      .divider-thick {
+        border: none;
+        border-top: 2px solid #0f1c2e;
+        margin: 9px 0 0;
+      }
+      .divider-thin {
+        border: none;
+        border-top: 0.75px solid #ccc;
+        margin: 8px 0;
+      }
+
+      /* ── Section heading ── */
+      .section {
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-size: 9pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #0f1c2e;
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+        border-bottom: 1.5px solid #0f1c2e;
+      }
+
+      /* ── Summary ── */
+      .summary-text {
+        font-size: 9pt;
+        color: #222;
+        line-height: 1.5;
+      }
+
+      /* ── Skills ── */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 3px 10px;
+      }
+      .skill-label {
+        font-size: 8.5pt;
+        font-weight: 700;
+        color: #1a1a1a;
+        white-space: nowrap;
+      }
+      .skill-value {
+        font-size: 8.5pt;
+        color: #333;
+      }
+
+      /* ── Experience ── */
+      .job {
+        margin-bottom: 10px;
+      }
+      .job:last-child {
+        margin-bottom: 0;
+      }
+
+      .job-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .job-title {
+        font-size: 9.5pt;
+        font-weight: 700;
+        color: #0f1c2e;
+      }
+      .job-date {
+        font-size: 8pt;
+        color: #555;
+        flex-shrink: 0;
+        padding-left: 8px;
+      }
+      .job-company {
+        font-size: 8.5pt;
+        font-weight: 600;
+        color: #1a4a8a;
+        margin-bottom: 5px;
+      }
+      .job-company .location {
+        font-weight: 400;
+        color: #666;
+      }
+
+      .sub-project {
+        margin-bottom: 6px;
+      }
+      .sub-project:last-child {
+        margin-bottom: 0;
+      }
+
+      .sub-name {
+        font-size: 9pt;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 1px;
+      }
+      .sub-tech {
+        font-size: 7.5pt;
+        color: #777;
+        font-style: italic;
+        margin-bottom: 3px;
+      }
+
+      ul {
+        padding-left: 14px;
+      }
+      ul li {
+        font-size: 8.5pt;
+        color: #222;
+        margin-bottom: 2px;
+        line-height: 1.4;
+      }
+
+      /* ── Projects ── */
+      .project-item {
+        margin-bottom: 7px;
+      }
+      .project-item:last-child {
+        margin-bottom: 0;
+      }
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .project-title {
+        font-size: 9pt;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+      .project-tech {
+        font-size: 7.5pt;
+        color: #777;
+        font-style: italic;
+      }
+      .project-url {
+        font-size: 8pt;
+        color: #1a4a8a;
+        margin-bottom: 3px;
+      }
+
+      /* ── Achievements ── */
+      .achievement-item {
+        margin-bottom: 7px;
+      }
+      .achievement-item:last-child {
+        margin-bottom: 0;
+      }
+      .achievement-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .achievement-title {
+        font-size: 9pt;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+      .achievement-date {
+        font-size: 8pt;
+        color: #555;
+      }
+      .achievement-meta {
+        font-size: 8.5pt;
+        font-weight: 600;
+        color: #1a4a8a;
+        margin-bottom: 3px;
+      }
+
+      /* ── Education ── */
+      .edu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      .edu-degree {
+        font-size: 9pt;
+        font-weight: 700;
+        color: #1a1a1a;
+      }
+      .edu-year {
+        font-size: 8pt;
+        color: #555;
+      }
+      .edu-school {
+        font-size: 8.5pt;
+        color: #1a4a8a;
+        font-weight: 600;
+      }
+
+      /* ── Print ── */
+      @page {
+        size: letter;
+        margin: 0.5in 0.6in;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <h1>Akshat Kansara</h1>
+      <p class="role">
+        Full-Stack Developer &nbsp;·&nbsp; MERN &nbsp;·&nbsp; Next.js
+        &nbsp;·&nbsp; AI Engineering
+      </p>
+      <div class="contact">
+        <span>+91 9328123156</span>
+        <span>askansara17@gmail.com</span>
+        <span
+          ><a
+            href="https://www.linkedin.com/in/akshat-kansara-79a20b1b0/"
+            style="color: #1a1a1a"
+            >linkedin.com/in/akshat-kansara-79a20b1b0</a
+          ></span
+        >
+        <span
+          ><a href="https://github.com/Akshat0904" style="color: #1a1a1a"
+            >github.com/Akshat0904</a
+          ></span
+        >
+      </div>
+    </header>
+
+    <hr class="divider-thick" />
+
+    <!-- SUMMARY -->
+    <div class="section" style="margin-top: 8px">
+      <p class="section-title">Professional Summary</p>
+      <p class="summary-text">
+        Full-Stack Developer with 3+ years of experience specializing in the
+        MERN stack and Next.js. Expert in building scalable web applications
+        with Node.js and PostgreSQL. Currently expanding into AI Engineering,
+        with foundational skills in integrating LLM APIs and building AI-powered
+        features to enhance user experiences. A results-driven engineer focused
+        on combining robust web architecture with emerging AI technologies.
+      </p>
+    </div>
+
+    <hr class="divider-thin" />
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <p class="section-title">Experience</p>
+
+      <!-- Avesta HQ -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Software Engineer</span>
+          <span class="job-date">July 2023 – Present</span>
+        </div>
+        <p class="job-company">
+          Avesta HQ &nbsp;<span class="location">· Ahmedabad, Gujarat</span>
+        </p>
+
+        <div class="sub-project">
+          <p class="sub-name">
+            Real Estate Intelligence Platform
+            <em style="font-weight: 400; font-size: 8pt"
+              >(<a href="https://www.view.com.au" style="color: #1a4a8a"
+                >view.com.au</a
+              >, Australia)</em
+            >
+          </p>
+          <p class="sub-tech">
+            React · Node.js · Express.js · PostgreSQL · Mapbox · Google Maps API
+            · NearMap · Elasticsearch · Redis
+          </p>
+          <ul>
+            <li>
+              Engineered the core property listing engine for view.com.au — one
+              of Australia's largest real estate platforms — integrating Mapbox,
+              Google Maps, and NearMap satellite imagery for real-time property
+              visualization.
+            </li>
+            <li>
+              Built high-throughput Node.js/Express.js APIs with Elasticsearch
+              and Redis caching, ensuring ultra-low latency under high-traffic
+              concurrency across a large-scale PostgreSQL database.
+            </li>
+            <li>
+              Deployed embeddable property widgets across 50+ partner sites,
+              driving a 20% increase in referral traffic; optimized Core Web
+              Vitals to boost SEO rankings and organic reach.
+            </li>
+            <li>
+              Built a Broker/Agency management portal enabling real estate
+              agencies to publish and manage property inventories, streamlining
+              the national sales pipeline.
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub-project">
+          <p class="sub-name">AI-Driven HRMS &amp; WhatsApp Rule Engine</p>
+          <p class="sub-tech">
+            Node.js · Express.js · PostgreSQL · Meta WhatsApp Cloud API
+          </p>
+          <ul>
+            <li>
+              Built an automated discrepancy resolution system integrating Meta
+              WhatsApp Cloud API for a conversational real-time manager-employee
+              interface.
+            </li>
+            <li>
+              Designed a custom Backend Rule Engine to automatically detect
+              attendance and payroll anomalies from organizational master data.
+            </li>
+            <li>
+              Reduced manager-to-employee issue resolution time by over 50%.
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub-project">
+          <p class="sub-name">Enterprise Industrial IoT Platform</p>
+          <p class="sub-tech">
+            Node.js · Express.js · PostgreSQL · Clean Architecture · TDD
+          </p>
+          <ul>
+            <li>
+              Architected a mission-critical IoT backend using Clean
+              Architecture and SOLID principles for real-time machine telemetry
+              ingestion and trend storage.
+            </li>
+            <li>
+              Implemented Unit, Integration, and Component testing strategy
+              achieving 99.9% reliability for industrial monitoring.
+            </li>
+            <li>
+              Built a real-time monitoring dashboard with live widgets and an
+              automated alarm system for instant deviation alerts.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="divider-thin" />
+
+      <!-- Rocker Technologies -->
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Backend Developer Intern</span>
+          <span class="job-date">March 2023 – June 2023</span>
+        </div>
+        <p class="job-company">
+          Rocker Technologies &nbsp;<span class="location"
+            >· Vadodara, Gujarat</span
+          >
+        </p>
+        <ul>
+          <li>
+            Built RESTful APIs with Node.js and Express.js; gained hands-on
+            experience in backend architecture and API design patterns.
+          </li>
+          <li>
+            Worked with MongoDB for data modeling and persistence across
+            multiple service modules.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider-thin" />
+
+    <!-- SKILLS -->
+    <div class="section">
+      <p class="section-title">Technical Skills</p>
+      <div class="skills-grid">
+        <span class="skill-label">Frontend</span>
+        <span class="skill-value"
+          >React.js, Next.js, JavaScript (ES6+), TypeScript, Tailwind CSS</span
+        >
+
+        <span class="skill-label">Backend</span>
+        <span class="skill-value"
+          >Node.js, Express.js, REST APIs, WebSockets</span
+        >
+
+        <span class="skill-label">Databases</span>
+        <span class="skill-value">PostgreSQL, MongoDB, SQL, pgvector</span>
+
+        <span class="skill-label">AI Engineering</span>
+        <span class="skill-value"
+          >OpenAI API, LLM APIs, AI-powered feature integration</span
+        >
+
+        <span class="skill-label">Architecture &amp; Testing</span>
+        <span class="skill-value"
+          >Clean Architecture, SOLID Principles, TDD, Unit Testing, Integration
+          Testing</span
+        >
+
+        <span class="skill-label">Tools &amp; Platforms</span>
+        <span class="skill-value">Git, Docker, Vercel, Figma, Postman</span>
+
+        <span class="skill-label">Integrations</span>
+        <span class="skill-value"
+          >Mapbox, Google Maps API, Meta WhatsApp Cloud API</span
+        >
+      </div>
+    </div>
+
+    <hr class="divider-thin" />
+
+    <!-- PROJECTS & ACHIEVEMENTS -->
+    <div class="section">
+      <p class="section-title">Projects &amp; Achievements</p>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-title">Trayan Corporation</span>
+          <span class="project-tech">Next.js · App Router · Tailwind CSS</span>
+        </div>
+        <p class="project-url">trayancorp.com</p>
+        <ul>
+          <li>
+            Company profile website built with Next.js App Router;
+            static-optimized for fast load times and SEO.
+          </li>
+        </ul>
+      </div>
+
+      <div class="achievement-item" style="margin-top: 8px">
+        <div class="achievement-header">
+          <span class="achievement-title"
+            >2nd Place — Internal Hackathon &nbsp;·&nbsp; Digital Kudos
+            Wall</span
+          >
+          <span class="achievement-date">2025</span>
+        </div>
+        <p class="achievement-meta">
+          Avesta HQ &nbsp;·&nbsp; 36-Hour Sprint &nbsp;·&nbsp; 10 Teams
+          &nbsp;·&nbsp; Prize Money Awarded
+        </p>
+        <ul>
+          <li>
+            Built a role-based internal employee recognition app using the BMAD
+            methodology and AI-assisted development (Cursor IDE), implementing
+            Clean Architecture with TDD across frontend, backend, and database
+            layers.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider-thin" />
+
+    <!-- EDUCATION -->
+    <div class="section">
+      <p class="section-title">Education</p>
+      <div class="edu-header">
+        <span class="edu-degree"
+          >Bachelor of Electronics &amp; Communication Engineering</span
+        >
+        <span class="edu-year">08/2019 – 06/2023</span>
+      </div>
+      <p class="edu-school">Vishwakarma Government Engineering College</p>
+      <p class="edu-year">GPA: 7.83 CGPA</p>
+    </div>
+  </body>
+</html>
