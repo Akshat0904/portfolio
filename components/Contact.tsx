@@ -27,7 +27,7 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="flex items-center gap-3 mb-12 justify-center"
         >
-          <span className="text-[#6366f1] text-sm font-mono">05.</span>
+          <span className="text-[#6366f1] text-sm font-mono">06.</span>
           <h2 className="text-3xl font-bold">Get In Touch</h2>
         </motion.div>
 
