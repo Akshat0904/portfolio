@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-slate-50">
+    <section id="contact" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f8fafc 100%)" }}>
       <div className="max-w-lg mx-auto text-center" ref={ref}>
 
         <motion.div

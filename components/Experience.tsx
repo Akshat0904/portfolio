@@ -67,7 +67,7 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="py-24 px-6 bg-slate-50">
+    <section id="experience" className="py-24 px-6 relative overflow-hidden" style={{ background: "linear-gradient(160deg, #f8fafc 0%, #eff6ff 60%, #f8fafc 100%)" }}>
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         <motion.div

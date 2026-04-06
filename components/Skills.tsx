@@ -35,7 +35,16 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="py-24 px-6 bg-white">
+    <section id="skills" className="py-24 px-6 bg-white relative overflow-hidden">
+      {/* Subtle dot texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #e2e8f0 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          opacity: 0.7,
+        }}
+      />
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         <motion.div

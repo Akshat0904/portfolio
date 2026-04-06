@@ -209,7 +209,9 @@ export default function Projects() {
   }, [lb]);
 
   return (
-    <section id="projects" className="py-24 px-6 bg-slate-50">
+    <section id="projects" className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+      {/* Subtle top gradient accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-200 to-transparent pointer-events-none" />
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         <motion.div

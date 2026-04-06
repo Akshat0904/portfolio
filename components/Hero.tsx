@@ -9,8 +9,23 @@ export default function Hero() {
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 bg-white">
-      <div className="max-w-3xl mx-auto w-full py-32">
+    <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden bg-white">
+      {/* Soft gradient base */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50/50 to-slate-100/80 pointer-events-none" />
+      {/* Blue orb — top right */}
+      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-blue-100/70 blur-3xl pointer-events-none" />
+      {/* Indigo orb — bottom left */}
+      <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-indigo-100/50 blur-3xl pointer-events-none" />
+      {/* Dot grid texture */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, #94a3b8 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+          opacity: 0.25,
+        }}
+      />
+      <div className="relative z-10 max-w-3xl mx-auto w-full py-32">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}

@@ -16,7 +16,9 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 px-6 bg-slate-50">
+    <section id="about" className="py-24 px-6 bg-slate-50 relative overflow-hidden">
+      {/* Faint top-right accent */}
+      <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-blue-50 blur-3xl opacity-60 pointer-events-none" />
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         {/* Header */}

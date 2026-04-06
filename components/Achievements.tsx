@@ -9,7 +9,8 @@ export default function Achievements() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="achievements" className="py-24 px-6 bg-white">
+    <section id="achievements" className="py-24 px-6 bg-white relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-amber-50/60 blur-3xl pointer-events-none" />
       <div className="max-w-6xl mx-auto" ref={ref}>
 
         <motion.div
