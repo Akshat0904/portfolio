@@ -10,7 +10,7 @@ const skillGroups = [
   },
   {
     category: "Backend",
-    skills: ["Node.js", "Express.js", "REST APIs", "WebSockets"],
+    skills: ["Node.js", "Express.js", "REST APIs", "WebSockets", "Authentication", "JWT"],
   },
   {
     category: "Databases",
@@ -25,8 +25,12 @@ const skillGroups = [
     skills: ["Clean Architecture", "SOLID Principles", "TDD", "Unit Testing", "Integration Testing"],
   },
   {
+    category: "Cloud",
+    skills: ["AWS S3", "AWS EC2", "AWS AMI", "AWS IAM"],
+  },
+  {
     category: "Tools & Integrations",
-    skills: ["Git", "Docker", "Vercel", "Mapbox", "Google Maps API", "Meta WhatsApp Cloud API"],
+    skills: ["Git", "Docker", "Vercel", "Mapbox", "Google Maps API", "Meta WhatsApp Cloud API", "Matomo Analytics"],
   },
 ];
 

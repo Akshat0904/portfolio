@@ -15,11 +15,12 @@ const experiences = [
     projects: [
       {
         name: "Real Estate Intelligence Platform",
-        subtitle: "view.com.au — Geolocation & Scalability",
+        subtitle: "view.com.au — Geolocation, Scalability & Analytics",
         bullets: [
           "Architected a high-performance property listing engine integrating Mapbox & Google Maps, visualizing thousands of real-time property listings with sub-second response.",
           "Engineered scalable Node.js/Express.js APIs with Elasticsearch and Redis caching to handle high-traffic concurrency across a large-scale PostgreSQL database.",
           "Deployed embeddable property widgets across 50+ partner sites, driving a 20% increase in referral traffic.",
+          "Integrated Matomo Analytics for privacy-compliant user behaviour tracking, enabling data-driven insights on property search patterns, page engagement, and referral sources.",
         ],
       },
       {
