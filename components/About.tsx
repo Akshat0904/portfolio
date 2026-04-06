@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { MapPin, Briefcase, Rocket } from "lucide-react";
+import { Briefcase, Rocket, MapPin, Zap } from "lucide-react";
 
 const stats = [
-  { icon: Briefcase, label: "3+ Years Experience" },
-  { icon: Rocket, label: "5+ Projects Delivered" },
-  { icon: MapPin, label: "Ahmedabad, India" },
+  { icon: Briefcase, value: "3+ Years", label: "Experience" },
+  { icon: Rocket,    value: "5+ Projects", label: "Delivered" },
+  { icon: MapPin,    value: "Ahmedabad", label: "India" },
+  { icon: Zap,       value: "Open to Roles", label: "Software Engineer" },
 ];
 
 export default function About() {
@@ -16,101 +16,79 @@ export default function About() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section id="about" className="py-24 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        {/* Section label */}
+
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-12"
+          className="mb-14"
         >
-          <span className="text-[#6366f1] text-sm font-mono">01.</span>
-          <h2 className="text-3xl font-bold">About Me</h2>
-          <div className="flex-1 h-px bg-[#262626] ml-4" />
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.15em] mb-2">About Me</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Who I Am</h2>
+          <div className="w-12 h-0.5 bg-blue-600 mt-3" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-14 items-start">
-          {/* Bio */}
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+
+          {/* Bio — 3 cols */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-5"
+            className="lg:col-span-3 space-y-4"
           >
-            <p className="text-[#a1a1aa] leading-relaxed text-base">
-              I&apos;m a{" "}
-              <span className="text-white font-medium">
-                Full-Stack Developer
-              </span>{" "}
-              with{" "}
-              <span className="text-[#6366f1] font-medium">
-                3+ years of experience
-              </span>{" "}
+            <p className="text-slate-600 leading-relaxed">
+              I&apos;m a <strong className="text-slate-900 font-semibold">Full-Stack Developer</strong>{" "}
+              with <strong className="text-blue-600 font-semibold">3+ years of experience</strong>{" "}
               specializing in the MERN stack and Next.js. I build scalable,
-              production-grade web applications with a focus on clean
+              production-grade web applications with a strong focus on clean
               architecture and performance.
             </p>
-            <p className="text-[#a1a1aa] leading-relaxed text-base">
-              At <span className="text-white font-medium">Avesta HQ</span>,
-              I&apos;ve shipped national-scale real estate platforms, automated
-              HRMS workflows with WhatsApp integrations, and built
-              mission-critical Industrial IoT backends with 99.9% reliability.
+            <p className="text-slate-600 leading-relaxed">
+              At <strong className="text-slate-900 font-semibold">Avesta HQ</strong>, I&apos;ve shipped
+              a national-scale real estate platform for Australia, automated HRMS workflows
+              with WhatsApp integrations, and built mission-critical Industrial IoT backends
+              achieving 99.9% reliability.
             </p>
-            <p className="text-[#a1a1aa] leading-relaxed text-base">
+            <p className="text-slate-600 leading-relaxed">
               I&apos;m currently expanding into{" "}
-              <span className="text-white font-medium">AI Engineering</span> —
-              integrating LLM APIs and building AI-powered features to enhance
-              user experiences. I&apos;m passionate about combining robust web
-              architecture with emerging AI technologies.
+              <strong className="text-slate-900 font-semibold">AI Engineering</strong> — integrating
+              LLM APIs and building AI-powered features to enhance user experiences.
             </p>
-            <p className="text-[#a1a1aa] leading-relaxed text-base">
-              I&apos;m actively looking for a{" "}
-              <span className="text-[#6366f1] font-medium">
-                Software Engineer
-              </span>{" "}
-              role where I can take ownership of complex systems and deliver
-              real impact.
+            <p className="text-slate-600 leading-relaxed">
+              I&apos;m actively seeking a{" "}
+              <strong className="text-blue-600 font-semibold">Software Engineer</strong>{" "}
+              role where I can own complex systems and deliver real business impact.
             </p>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stat cards — 2 cols */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            className="lg:col-span-2 grid grid-cols-2 gap-4"
           >
-            {stats.map((stat, i) => (
+            {stats.map((s, i) => (
               <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="flex items-center gap-4 bg-[#161616] border border-[#262626] rounded-xl p-5 hover:border-[#6366f1]/40 transition-colors"
+                key={s.label}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.07 }}
+                className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md hover:border-blue-200 transition-all"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#6366f1]/10 flex items-center justify-center shrink-0">
-                  <stat.icon size={18} className="text-[#6366f1]" />
+                <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center mb-3">
+                  <s.icon size={16} className="text-blue-600" />
                 </div>
-                <span className="text-white font-medium">{stat.label}</span>
+                <p className="text-base font-bold text-slate-900 leading-tight">{s.value}</p>
+                <p className="text-xs text-slate-500 mt-0.5">{s.label}</p>
               </motion.div>
             ))}
-
-            {/* Currently tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.6 }}
-              className="bg-[#6366f1]/10 border border-[#6366f1]/30 rounded-xl p-5"
-            >
-              <p className="text-sm text-[#a5b4fc] font-medium mb-1">
-                Currently
-              </p>
-              <p className="text-white text-sm">
-                Software Engineer @ Avesta HQ · Open to software engineer roles
-              </p>
-            </motion.div>
           </motion.div>
+
         </div>
       </div>
     </section>

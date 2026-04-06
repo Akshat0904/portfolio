@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink } from "lucide-react";
 
@@ -16,30 +15,29 @@ const experiences = [
     projects: [
       {
         name: "Real Estate Intelligence Platform",
-        subtitle: "view.com.au — Scalability & Geolocation",
+        subtitle: "view.com.au — Geolocation & Scalability",
         bullets: [
-          "Architected a high-performance property listing engine integrating Mapbox & Google Maps with custom tooltips, visualizing thousands of real-time property listings.",
-          "Engineered a highly scalable Node.js/Express.js API to handle high-traffic concurrency with seamless data retrieval from a large-scale PostgreSQL database.",
-          "Developed a Broker/Agency portal enabling real estate agencies to manage and publish property inventories, streamlining the sales pipeline at national scale.",
+          "Architected a high-performance property listing engine integrating Mapbox & Google Maps, visualizing thousands of real-time property listings with sub-second response.",
+          "Engineered scalable Node.js/Express.js APIs with Elasticsearch and Redis caching to handle high-traffic concurrency across a large-scale PostgreSQL database.",
+          "Deployed embeddable property widgets across 50+ partner sites, driving a 20% increase in referral traffic.",
         ],
       },
       {
         name: "AI-Driven HRMS & WhatsApp Rule Engine",
-        subtitle: "Automation, AI-style Logic & Meta API",
+        subtitle: "Automation & Meta WhatsApp Cloud API",
         bullets: [
-          "Built an automated discrepancy resolution system for an HRMS portal, integrating Meta's WhatsApp Cloud API for a conversational real-time manager-employee interface.",
-          "Designed a custom Backend Rule Engine that processes organizational master data to automatically identify attendance and payroll anomalies.",
-          "Streamlined management workflows enabling managers to resolve employee issues via WhatsApp chat, reducing resolution time by over 50%.",
+          "Built an automated discrepancy resolution system integrating Meta WhatsApp Cloud API for a conversational real-time manager-employee interface.",
+          "Designed a custom Backend Rule Engine to automatically detect attendance and payroll anomalies from organizational master data.",
+          "Reduced manager-to-employee issue resolution time by over 50%.",
         ],
       },
       {
         name: "Enterprise Industrial IoT Platform",
-        subtitle: "Real-time Telemetry, Clean Architecture & TDD",
+        subtitle: "Real-time Telemetry · Clean Architecture · TDD",
         bullets: [
-          "Architected a robust IoT Backend Service using Uncle Bob's Clean Architecture and SOLID principles — highly decoupled, maintainable, and scalable for real-time machine telemetry.",
-          "Implemented a comprehensive testing strategy achieving high code coverage through Unit, Integration, and Component tests — ensuring 99.9% reliability for mission-critical industrial monitoring.",
-          "Designed a high-throughput data pipeline to ingest and store high-frequency machine health data into PostgreSQL, enabling long-term trend analysis and predictive maintenance.",
-          "Developed a real-time Monitoring Dashboard with live widgets and an automated alarm system that triggers instant notifications when machine parameters deviate from stable thresholds.",
+          "Architected a mission-critical IoT backend using Clean Architecture and SOLID principles for real-time machine telemetry ingestion.",
+          "Implemented Unit, Integration, and Component testing strategy achieving 99.9% reliability for industrial monitoring.",
+          "Built a real-time monitoring dashboard with live widgets and an automated alarm system for instant deviation alerts.",
         ],
       },
     ],
@@ -53,12 +51,11 @@ const experiences = [
     current: false,
     projects: [
       {
-        name: "Backend Engineering Foundation",
+        name: "Backend Engineering",
         subtitle: "Node.js · Express.js · MongoDB",
         bullets: [
-          "Built RESTful APIs using Node.js and Express.js, gaining hands-on expertise in backend architecture and API design patterns.",
-          "Worked with MongoDB for data modeling and persistence across multiple service modules.",
-          "Developed strong fundamentals in server-side development, routing, middleware design, and API security practices.",
+          "Built 10+ RESTful APIs using Node.js and Express.js, reducing backend response latency by 15% for internal modules.",
+          "Developed strong fundamentals in server-side architecture, routing, middleware design, and API security.",
         ],
       },
     ],
@@ -70,72 +67,72 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="experience" className="py-24 px-6">
+    <section id="experience" className="py-24 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        {/* Section label */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-12"
+          className="mb-14"
         >
-          <span className="text-[#6366f1] text-sm font-mono">03.</span>
-          <h2 className="text-3xl font-bold">Experience</h2>
-          <div className="flex-1 h-px bg-[#262626] ml-4" />
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.15em] mb-2">Experience</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Work History</h2>
+          <div className="w-12 h-0.5 bg-blue-600 mt-3" />
         </motion.div>
 
-        <div className="space-y-10">
+        <div className="space-y-6">
           {experiences.map((exp, i) => (
             <motion.div
               key={exp.company}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="bg-[#161616] border border-[#262626] rounded-2xl p-7 hover:border-[#6366f1]/40 transition-colors"
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+              className="bg-white border border-slate-200 rounded-2xl p-7 shadow-sm hover:shadow-md hover:border-blue-200 transition-all"
             >
-              {/* Header */}
-              <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+              {/* Card header */}
+              <div className="flex flex-wrap items-start justify-between gap-3 mb-6 pb-5 border-b border-slate-100">
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                  <div className="flex items-center gap-2.5 mb-1">
+                    <h3 className="text-xl font-bold text-slate-900">{exp.role}</h3>
                     {exp.current && (
-                      <span className="text-xs bg-[#6366f1]/20 text-[#a5b4fc] border border-[#6366f1]/30 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-100 px-2 py-0.5 rounded-full">
                         Current
                       </span>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-[#6366f1] font-medium">
+                  <div className="flex items-center gap-1.5 text-sm">
                     {exp.companyUrl ? (
                       <a
                         href={exp.companyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-[#a5b4fc] transition-colors flex items-center gap-1"
+                        className="font-semibold text-blue-600 hover:text-blue-700 flex items-center gap-1 transition-colors"
                       >
-                        {exp.company}
-                        <ExternalLink size={13} />
+                        {exp.company} <ExternalLink size={12} />
                       </a>
                     ) : (
-                      <span>{exp.company}</span>
+                      <span className="font-semibold text-blue-600">{exp.company}</span>
                     )}
+                    <span className="text-slate-300">·</span>
+                    <span className="text-slate-500">{exp.location}</span>
                   </div>
                 </div>
-                <div className="text-right text-sm text-[#71717a]">
-                  <p>{exp.period}</p>
-                  <p>{exp.location}</p>
-                </div>
+                <span className="text-sm text-slate-400 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full">
+                  {exp.period}
+                </span>
               </div>
 
-              {/* Projects */}
-              <div className="space-y-6">
+              {/* Sub-projects */}
+              <div className="space-y-5">
                 {exp.projects.map((project) => (
-                  <div key={project.name} className="border-l-2 border-[#6366f1]/30 pl-5">
-                    <p className="font-semibold text-white mb-0.5">{project.name}</p>
-                    <p className="text-xs text-[#6366f1] mb-3 font-mono">{project.subtitle}</p>
-                    <ul className="space-y-2">
+                  <div key={project.name} className="pl-4 border-l-2 border-blue-100">
+                    <p className="font-semibold text-slate-800 text-sm">{project.name}</p>
+                    <p className="text-xs text-blue-600 font-medium mt-0.5 mb-3">{project.subtitle}</p>
+                    <ul className="space-y-1.5">
                       {project.bullets.map((bullet, bi) => (
-                        <li key={bi} className="flex gap-3 text-sm text-[#a1a1aa] leading-relaxed">
-                          <span className="text-[#6366f1] mt-1 shrink-0">▸</span>
+                        <li key={bi} className="flex gap-2.5 text-sm text-slate-500 leading-relaxed">
+                          <span className="text-blue-400 mt-1 shrink-0 text-xs">▸</span>
                           <span>{bullet}</span>
                         </li>
                       ))}

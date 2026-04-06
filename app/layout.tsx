@@ -33,7 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={geist.className}>
-      <body className="bg-[#0f0f0f] text-white antialiased">{children}</body>
+      <body className="bg-[#f8fafc] text-[#0f172a] antialiased">
+        {children}
+      </body>
     </html>
   );
 }

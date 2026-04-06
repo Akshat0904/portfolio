@@ -1,42 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const skillGroups = [
   {
     category: "Frontend",
-    skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+    skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "HTML5 / CSS3"],
   },
   {
     category: "Backend",
     skills: ["Node.js", "Express.js", "REST APIs", "WebSockets"],
   },
   {
-    category: "Database",
-    skills: ["PostgreSQL", "SQL", "MongoDB", "pgvector"],
+    category: "Databases",
+    skills: ["PostgreSQL", "SQL", "MongoDB", "pgvector", "Elasticsearch", "Redis"],
   },
   {
     category: "AI Engineering",
-    skills: ["LLM APIs", "AI Integration", "OpenAI API", "AI-powered Features"],
+    skills: ["OpenAI API", "LLM APIs", "AI Integration", "AI-powered Features"],
   },
   {
-    category: "Architecture & Tools",
-    skills: [
-      "Clean Architecture",
-      "SOLID Principles",
-      "TDD",
-      "Unit Testing",
-      "Integration Testing",
-      "Git",
-      "Docker",
-      "Vercel",
-    ],
+    category: "Architecture & Testing",
+    skills: ["Clean Architecture", "SOLID Principles", "TDD", "Unit Testing", "Integration Testing"],
   },
   {
-    category: "Integrations",
-    skills: ["Mapbox", "Google Maps API", "Meta WhatsApp Cloud API", "Third-party APIs"],
+    category: "Tools & Integrations",
+    skills: ["Git", "Docker", "Vercel", "Mapbox", "Google Maps API", "Meta WhatsApp Cloud API"],
   },
 ];
 
@@ -45,37 +35,37 @@ export default function Skills() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[#0a0a0a]">
+    <section id="skills" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto" ref={ref}>
-        {/* Section label */}
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 mb-12"
+          className="mb-14"
         >
-          <span className="text-[#6366f1] text-sm font-mono">02.</span>
-          <h2 className="text-3xl font-bold">Skills</h2>
-          <div className="flex-1 h-px bg-[#262626] ml-4" />
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.15em] mb-2">Skills</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Technical Stack</h2>
+          <div className="w-12 h-0.5 bg-blue-600 mt-3" />
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {skillGroups.map((group, i) => (
             <motion.div
               key={group.category}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="bg-[#161616] border border-[#262626] rounded-xl p-6 hover:border-[#6366f1]/40 transition-colors"
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-blue-200 hover:shadow-sm transition-all"
             >
-              <h3 className="text-sm font-semibold text-[#6366f1] uppercase tracking-wider mb-4">
+              <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-sm bg-[#0f0f0f] border border-[#262626] text-[#a1a1aa] px-3 py-1 rounded-md hover:border-[#6366f1]/50 hover:text-white transition-colors"
+                    className="text-sm bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-md"
                   >
                     {skill}
                   </span>

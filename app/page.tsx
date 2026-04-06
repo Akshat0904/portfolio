@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="bg-[#0f0f0f] text-white">
+    <main>
       <Navbar />
       <Hero />
       <About />
@@ -18,10 +18,11 @@ export default function Home() {
       <Projects />
       <Achievements />
       <Contact />
-      <footer className="border-t border-[#262626] py-6 text-center text-sm text-[#52525b]">
+      <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-400">
         <p>
           Designed & Built by{" "}
-          <span className="text-[#6366f1]">Akshat Kansara</span> · {new Date().getFullYear()}
+          <span className="text-blue-600 font-medium">Akshat Kansara</span>{" "}
+          · {new Date().getFullYear()}
         </p>
       </footer>
     </main>
