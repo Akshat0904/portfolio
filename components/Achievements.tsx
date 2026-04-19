@@ -1,69 +1,82 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { Trophy } from "lucide-react";
+import { useRef, useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Achievements() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <section id="achievements" className="py-24 px-6 bg-white relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-amber-50/60 blur-3xl pointer-events-none" />
-      <div className="max-w-6xl mx-auto" ref={ref}>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-14"
+    <section className="py-12 px-6 bg-[#0c0c0c]" ref={ref}>
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+        className="max-w-6xl mx-auto border-t border-b border-[#1a1a1a] py-6"
+      >
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="w-full flex items-center justify-between group cursor-pointer"
         >
-          <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.15em] mb-2">Achievements</p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Recognition</h2>
-          <div className="w-12 h-0.5 bg-blue-600 mt-3" />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md hover:border-blue-200 transition-all max-w-3xl"
-        >
-          <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-100 flex items-center justify-center shrink-0">
-                <Trophy size={22} className="text-amber-500" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900">2nd Place — Internal Hackathon</h3>
-                <p className="text-blue-600 font-semibold text-sm mt-0.5">Digital Kudos Wall</p>
-                <p className="text-xs text-slate-400 mt-0.5">Avesta HQ · 36-Hour Sprint · 10 Teams · Prize Money Awarded</p>
-              </div>
+          <div className="flex items-center gap-4">
+            <span className="text-2xl">🏆</span>
+            <div className="text-left">
+              <p className="text-[#ede9e3] font-medium text-sm">
+                2nd Place — Internal Hackathon
+              </p>
+              <p className="text-[#908a82] text-xs">
+                Digital Kudos Wall · Avesta HQ · 2025
+              </p>
             </div>
-            <span className="text-sm text-slate-400 bg-slate-50 border border-slate-200 px-3 py-1 rounded-full">2025</span>
           </div>
-
-          <ul className="space-y-2 mb-5 pl-16">
-            <li className="flex gap-2.5 text-sm text-slate-500 leading-relaxed">
-              <span className="text-blue-400 mt-1 shrink-0 text-xs">▸</span>
-              Built a role-based internal employee recognition platform using the BMAD methodology and AI-assisted development (Cursor IDE).
-            </li>
-            <li className="flex gap-2.5 text-sm text-slate-500 leading-relaxed">
-              <span className="text-blue-400 mt-1 shrink-0 text-xs">▸</span>
-              Implemented Clean Architecture with TDD across frontend, backend, and database layers — ranked 2nd out of 10 competing teams.
-            </li>
-          </ul>
-
-          <div className="flex flex-wrap gap-2 pl-16">
-            {["BMAD", "Clean Architecture", "TDD", "Cursor IDE", "AI-Assisted Dev"].map((tag) => (
-              <span key={tag} className="text-xs bg-slate-50 border border-slate-200 text-slate-500 px-2.5 py-1 rounded-md">
-                {tag}
-              </span>
-            ))}
+          <div className="flex items-center gap-3">
+            <span className="hidden sm:block text-[#5c5751] text-xs tracking-widest uppercase">
+              Achievement
+            </span>
+            {expanded ? (
+              <ChevronUp size={16} className="text-[#5c5751]" />
+            ) : (
+              <ChevronDown size={16} className="text-[#5c5751]" />
+            )}
           </div>
-        </motion.div>
-      </div>
+        </button>
+
+        {expanded && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            className="mt-5 pl-12 space-y-2"
+          >
+            <p className="text-sm text-[#908a82] leading-relaxed">
+              Built a role-based internal employee recognition platform using
+              BMAD methodology and AI-assisted development (Cursor IDE).
+            </p>
+            <p className="text-sm text-[#908a82] leading-relaxed">
+              Implemented Clean Architecture with TDD across frontend, backend,
+              and database layers — ranked 2nd out of 10 competing teams.
+            </p>
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {[
+                "BMAD",
+                "Clean Architecture",
+                "TDD",
+                "Cursor IDE",
+                "AI-Assisted Dev",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] text-[#908a82] border border-[#2a2a2a] px-2.5 py-1 rounded-full"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </motion.div>
     </section>
   );
 }

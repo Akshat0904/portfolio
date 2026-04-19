@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -12,17 +11,16 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <About />
       <Skills />
       <Experience />
       <Projects />
       <Achievements />
       <Contact />
-      <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-400">
-        <p>
+      <footer className="border-t border-[#1a1a1a] py-8 text-center">
+        <p className="text-[#3d3a37] text-xs tracking-widest uppercase">
           Designed & Built by{" "}
-          <span className="text-blue-600 font-medium">Akshat Kansara</span>{" "}
-          · {new Date().getFullYear()}
+          <span className="text-[#6b6560]">Akshat Kansara</span> ·{" "}
+          {new Date().getFullYear()}
         </p>
       </footer>
     </main>

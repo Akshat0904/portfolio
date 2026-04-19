@@ -4,11 +4,9 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "About",      href: "#about" },
-  { label: "Skills",     href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects",   href: "#projects" },
-  { label: "Contact",    href: "#contact" },
+  { label: "Work", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
@@ -22,28 +20,29 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Scroll spy — observe each section
   useEffect(() => {
-    const sectionIds = links.map((l) => l.href.slice(1));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Pick the entry that is most visible
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id);
-        }
-      },
-      { rootMargin: "-20% 0px -60% 0px", threshold: [0, 0.25, 0.5, 0.75, 1] }
-    );
+    const sectionIds = ["experience", "projects", "contact"];
+    const observers: IntersectionObserver[] = [];
 
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) observer.observe(el);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${id}`);
+          }
+        },
+        { rootMargin: "-40% 0px -55% 0px" },
+      );
+
+      observer.observe(el);
+      observers.push(observer);
     });
 
-    return () => observer.disconnect();
+    return () => observers.forEach((o) => o.disconnect());
   }, []);
 
   const handleNav = (href: string) => {
@@ -52,68 +51,93 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-      scrolled ? "bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm" : "bg-transparent"
-    }`}>
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#0c0c0c]/90 backdrop-blur-md border-b border-[#2a2a2a]"
+          : "bg-transparent"
+      }`}
+    >
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-
-        <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-          className="text-base font-bold text-slate-900 tracking-tight">
-          AK<span className="text-blue-600">.</span>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            setActiveSection("");
+          }}
+          className="font-[var(--font-serif)] text-lg tracking-tight text-[#ede9e3] hover:text-[#d4a853] transition-colors"
+        >
+          AK
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => {
-            const isActive = activeSection === l.href.slice(1);
+            const isActive = activeSection === l.href;
             return (
               <li key={l.href}>
                 <button
                   onClick={() => handleNav(l.href)}
-                  className={`relative text-sm font-medium transition-colors cursor-pointer pb-0.5 ${
-                    isActive ? "text-blue-600" : "text-slate-500 hover:text-slate-900"
+                  className={`group relative text-[13px] uppercase tracking-[0.15em] transition-colors cursor-pointer py-1 ${
+                    isActive
+                      ? "text-[#d4a853]"
+                      : "text-[#908a82] hover:text-[#d4a853]"
                   }`}
                 >
                   {l.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 rounded-full" />
-                  )}
+                  <span
+                    className={`absolute left-0 bottom-0 h-px bg-[#d4a853] transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-full"
+                    }`}
+                  />
                 </button>
               </li>
             );
           })}
         </ul>
 
-        <a href="mailto:askansara17@gmail.com"
-          className="hidden md:inline-flex text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-          Hire Me
+        <a
+          href="mailto:askansara17@gmail.com"
+          className="hidden md:inline-flex text-[13px] uppercase tracking-[0.15em] text-[#d4a853] hover:text-[#ede9e3] transition-colors border border-[#d4a853]/30 hover:border-[#d4a853] px-4 py-1.5 rounded-full"
+        >
+          Say Hello
         </a>
 
-        <button className="md:hidden text-slate-500 hover:text-slate-900"
-          onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        <button
+          className="md:hidden text-[#908a82] hover:text-[#ede9e3]"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
       {menuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-6 pb-5 shadow-sm">
-          <ul className="flex flex-col gap-4 pt-4">
+        <div className="md:hidden bg-[#0c0c0c] border-b border-[#2a2a2a] px-6 pb-6">
+          <ul className="flex flex-col gap-5 pt-4">
             {links.map((l) => {
-              const isActive = activeSection === l.href.slice(1);
+              const isActive = activeSection === l.href;
               return (
                 <li key={l.href}>
-                  <button onClick={() => handleNav(l.href)}
-                    className={`text-sm font-medium transition-colors w-full text-left cursor-pointer ${
-                      isActive ? "text-blue-600" : "text-slate-500 hover:text-slate-900"
-                    }`}>
+                  <button
+                    onClick={() => handleNav(l.href)}
+                    className={`text-sm uppercase tracking-[0.15em] transition-colors w-full text-left cursor-pointer ${
+                      isActive
+                        ? "text-[#d4a853]"
+                        : "text-[#908a82] hover:text-[#d4a853]"
+                    }`}
+                  >
                     {l.label}
                   </button>
                 </li>
               );
             })}
             <li>
-              <a href="mailto:askansara17@gmail.com"
-                className="inline-flex text-sm font-semibold bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
-                Hire Me
+              <a
+                href="mailto:askansara17@gmail.com"
+                className="text-sm uppercase tracking-[0.15em] text-[#d4a853]"
+              >
+                Say Hello
               </a>
             </li>
           </ul>

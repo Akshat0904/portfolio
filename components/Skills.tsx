@@ -30,19 +30,26 @@ const skillGroups = [
     category: "Databases",
     skills: [
       "PostgreSQL",
-      "SQL",
       "MongoDB",
-      "pgvector",
-      "Elasticsearch",
       "Redis",
+      "Elasticsearch",
+      "pgvector",
+      "SQL",
     ],
   },
   {
-    category: "AI Engineering",
-    skills: ["OpenAI API", "LLM APIs", "AI Integration", "AI-powered Features"],
+    category: "AI & Cloud",
+    skills: [
+      "OpenAI API",
+      "LLM Integration",
+      "AWS S3",
+      "AWS EC2",
+      "AWS Lambda",
+      "Docker",
+    ],
   },
   {
-    category: "Architecture & Testing",
+    category: "Architecture",
     skills: [
       "Clean Architecture",
       "SOLID Principles",
@@ -52,75 +59,56 @@ const skillGroups = [
     ],
   },
   {
-    category: "Cloud",
-    skills: ["AWS S3", "AWS EC2", "AWS Lambda", "AWS AMI", "AWS IAM"],
-  },
-  {
-    category: "Tools & Integrations",
+    category: "Integrations",
     skills: [
-      "Git",
-      "Docker",
-      "Vercel",
       "Mapbox",
       "Google Maps API",
-      "Meta WhatsApp Cloud API",
+      "Meta WhatsApp API",
       "Matomo Analytics",
+      "Git",
+      "Vercel",
     ],
   },
 ];
 
 export default function Skills() {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section
-      id="skills"
-      className="py-24 px-6 bg-white relative overflow-hidden"
-    >
-      {/* Subtle dot texture */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #e2e8f0 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-          opacity: 0.7,
-        }}
-      />
-      <div className="max-w-6xl mx-auto" ref={ref}>
+    <section className="py-24 px-6 bg-[#0c0c0c]" ref={ref}>
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="mb-14"
+          transition={{ duration: 0.6 }}
+          className="flex items-baseline justify-between mb-14"
         >
-          <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.15em] mb-2">
-            Skills
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
-            Technical Stack
+          <h2 className="font-[var(--font-serif)] text-3xl sm:text-4xl text-[#ede9e3]">
+            What I work with
           </h2>
-          <div className="w-12 h-0.5 bg-blue-600 mt-3" />
+          <span className="hidden sm:block text-[#5c5751] text-xs tracking-widest uppercase">
+            Skills
+          </span>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillGroups.map((group, i) => (
             <motion.div
               key={group.category}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="bg-slate-50 border border-slate-200 rounded-xl p-6 hover:border-blue-200 hover:shadow-sm transition-all"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-[#141414] border border-[#2a2a2a] rounded-xl p-6 hover:border-[#d4a853]/30 transition-colors"
             >
-              <h3 className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
+              <h3 className="text-[11px] tracking-widest uppercase text-[#d4a853] mb-5">
                 {group.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-sm bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-md"
+                    className="text-[13px] text-[#c4bfb8] bg-[#1a1a1a] border border-[#2a2a2a] px-3 py-1.5 rounded-lg hover:text-[#ede9e3] hover:border-[#d4a853]/30 transition-all cursor-default"
                   >
                     {skill}
                   </span>

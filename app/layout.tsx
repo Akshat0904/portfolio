@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"] });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Akshat Kansara – Full-Stack Developer",
   description:
-    "Full-Stack Developer with 3+ years of experience in MERN stack, Next.js, and AI Engineering. Based in Ahmedabad, India. Open to Software Engineer roles.",
+    "Full-Stack Developer with 2.5+ years of experience in Node.js, React.js, Next.js, and AI Engineering. Based in Ahmedabad, India. Open to Software Engineer roles.",
   keywords: [
     "Full-Stack Developer",
-    "MERN Stack",
+    "React.js",
     "Next.js",
     "Node.js",
     "React",
@@ -21,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Akshat Kansara – Full-Stack Developer",
     description:
-      "Full-Stack Developer with 3+ years of experience in MERN stack, Next.js, and AI Engineering.",
+      "Full-Stack Developer with 2.5+ years of experience in Node.js, React.js, Next.js, and AI Engineering.",
     type: "website",
   },
 };
@@ -32,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={geist.className}>
-      <body className="bg-[#f8fafc] text-[#0f172a] antialiased">
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="bg-[#0c0c0c] text-[#e8e4df] antialiased font-[var(--font-sans)]">
         {children}
       </body>
     </html>
