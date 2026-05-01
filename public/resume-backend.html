@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Akshat Kansara – Resume</title>
+    <title>Akshat Kansara – Backend Developer Resume</title>
     <style>
       *,
       *::before,
@@ -97,8 +97,6 @@
         color: #222;
         line-height: 1.5;
       }
-
-      /* ── Skills ── */
 
       /* ── Experience ── */
       .job {
@@ -259,8 +257,8 @@
     <header class="header">
       <h1>Akshat Kansara</h1>
       <p class="role">
-        Full-Stack Developer &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; React.js
-        &nbsp;·&nbsp; Next.js &nbsp;·&nbsp; AI Engineering
+        Backend Developer &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; Express.js &nbsp;·&nbsp; MySQL &nbsp;·&nbsp; PostgreSQL
+        &nbsp;·&nbsp; AI Engineering
       </p>
       <div class="contact">
         <span>+91 9328123156</span>
@@ -289,15 +287,15 @@
 
     <!-- SUMMARY -->
     <div class="section" style="margin-top: 8px">
-      <p class="section-title">Professional Summary</p>s
+      <p class="section-title">Professional Summary</p>
       <p class="summary-text">
-        Full-Stack Developer with 3+ years of experience specializing in
-        Node.js, React.js, and Next.js. Expert in building scalable web
-        applications with Node.js and PostgreSQL. Currently expanding into AI
-        Engineering, with foundational skills in integrating LLM APIs and
-        building AI-powered features to enhance user experiences. A
-        results-driven engineer focused on combining robust web architecture
-        with emerging AI technologies.
+        Backend Developer with 3+ years of experience architecting scalable
+        Node.js and Express.js APIs, high-throughput data pipelines, and
+        mission-critical systems. Expertise in PostgreSQL, Elasticsearch, Redis
+        caching, Clean Architecture, and Test-Driven Development. Actively
+        building AI Engineering capabilities: integrating LLM APIs, OpenAI
+        services, and vector search with pgvector to deliver intelligent,
+        AI-powered backend features.
       </p>
     </div>
 
@@ -321,37 +319,26 @@
           <p class="sub-name">
             Real Estate Intelligence Platform
             <span style="font-weight: 400; font-size: 7.5pt; color: #777">
-              &nbsp;|&nbsp; React · Node.js · Express.js · PostgreSQL · Mapbox ·
-              Google Maps API · NearMap · Elasticsearch · Redis · Matomo</span
+              &nbsp;|&nbsp; Node.js · Express.js · PostgreSQL · Elasticsearch ·
+              Redis · REST APIs · Matomo</span
             >
           </p>
           <ul>
             <li>
-              Architected a high-performance listing engine for a leading
-              Australian real estate platform, implementing advanced Mapbox and
-              Nearmap integrations that deliver sub-second property
-              visualization across a high-traffic, national database.
+              Architected high-throughput RESTful APIs using Node.js and
+              Express.js with Elasticsearch full-text search and Redis caching,
+              achieving sub-second query latency under high-concurrency load on
+              a large-scale, national PostgreSQL database.
             </li>
             <li>
-              Built high-throughput Node.js/Express.js APIs with Elasticsearch
-              and Redis caching, ensuring ultra-low latency under high-traffic
-              concurrency across a large-scale PostgreSQL database.
+              Designed and optimised complex SQL schemas and queries in
+              PostgreSQL to support advanced property filtering, geo-spatial
+              lookups, and platform-wide analytics at scale.
             </li>
             <li>
-              Deployed embeddable property widgets across 50+ partner sites,
-              driving a 20% increase in referral traffic; optimized Core Web
-              Vitals to boost SEO rankings and organic reach.
-            </li>
-            <li>
-              Built a Broker/Agency management portal enabling real estate
-              agencies to publish and manage property inventories, streamlining
-              the national sales pipeline.
-            </li>
-            <li>
-              Integrated Matomo Analytics for privacy-compliant user behaviour
-              tracking, enabling data-driven insights on property search
-              patterns, page engagement, and referral sources across the
-              platform.
+              Built the backend API layer for a Broker and Agency management
+              portal, enabling real estate agencies to publish and manage
+              property inventories and streamlining the national sales pipeline.
             </li>
           </ul>
         </div>
@@ -361,21 +348,24 @@
             AI-Driven HRMS &amp; WhatsApp Rule Engine
             <span style="font-weight: 400; font-size: 7.5pt; color: #777">
               &nbsp;|&nbsp; Node.js · Express.js · PostgreSQL · Meta WhatsApp
-              Cloud API</span
+              Cloud API · OpenAI API</span
             >
           </p>
           <ul>
             <li>
-              Built an automated discrepancy resolution system integrating Meta
-              WhatsApp Cloud API for a conversational real-time manager-employee
-              interface
+              Designed and implemented a custom backend Rule Engine in Node.js
+              to automatically detect attendance and payroll anomalies from
+              organisational master data, eliminating manual discrepancy review.
             </li>
             <li>
-              Designed a custom Backend Rule Engine to automatically detect
-              attendance and payroll anomalies from organizational master data.
+              Built a real-time conversational interface by integrating the Meta
+              WhatsApp Cloud API, enabling automated, AI-assisted
+              manager-employee discrepancy resolution workflows.
             </li>
             <li>
-              Reduced manager-to-employee issue resolution time by over 50%.
+              Integrated OpenAI API to power intelligent response generation
+              within the HRMS conversational flow, improving response accuracy
+              and reducing resolution time by over 50%.
             </li>
           </ul>
         </div>
@@ -385,22 +375,25 @@
             Enterprise Industrial IoT Platform
             <span style="font-weight: 400; font-size: 7.5pt; color: #777">
               &nbsp;|&nbsp; Node.js · Express.js · PostgreSQL · Clean
-              Architecture · TDD</span
+              Architecture · TDD · WebSockets</span
             >
           </p>
           <ul>
             <li>
               Architected a mission-critical IoT backend using Clean
-              Architecture and SOLID principles, processing real-time machine
-              telemetry ingestion and trend storage.
+              Architecture and SOLID principles in Node.js, supporting
+              real-time machine telemetry ingestion and time-series trend
+              storage at industrial scale.
             </li>
             <li>
-              Implemented Unit, Integration, and Component testing strategy
-              achieving 99.9% reliability for industrial monitoring.
+              Implemented a comprehensive testing strategy covering Unit,
+              Integration, and Component tests using TDD, achieving 99.9%
+              system reliability for industrial monitoring operations.
             </li>
             <li>
-              Built a real-time monitoring dashboard with live widgets and an
-              automated alarm system for instant deviation alerts.
+              Built an automated alarm system with real-time WebSocket
+              notifications for instant machine deviation alerts, enabling
+              faster incident response for operations teams.
             </li>
           </ul>
         </div>
@@ -436,35 +429,33 @@
       <p class="section-title">Technical Skills</p>
       <div style="font-size: 8.5pt; line-height: 1.65; color: #222">
         <p>
-          <strong>Frontend: &nbsp;</strong>React.js, Next.js, JavaScript (ES6+),
-          TypeScript, Tailwind CSS
-        </p>
-        <p>
           <strong>Backend: &nbsp;</strong>Node.js, Express.js, REST APIs,
           WebSockets, Authentication, JWT
         </p>
         <p>
-          <strong>Databases: &nbsp;</strong>PostgreSQL, MongoDB, SQL, pgvector
+          <strong>AI Engineering: &nbsp;</strong>OpenAI API, LLM APIs,
+          pgvector (RAG / Vector Search), AI-Powered Backend Services, Prompt
+          Engineering
         </p>
         <p>
-          <strong>AI Engineering: &nbsp;</strong>OpenAI API, LLM APIs,
-          AI-powered feature integration
+          <strong>Databases: &nbsp;</strong>PostgreSQL, MongoDB, SQL, pgvector,
+          Elasticsearch, Redis
         </p>
         <p>
           <strong>Architecture &amp; Testing: &nbsp;</strong>Clean Architecture,
-          SOLID Principles, TDD, Unit Testing, Integration Testing
+          SOLID Principles, TDD, Unit Testing, Integration Testing, Component
+          Testing
         </p>
         <p>
           <strong>Cloud: &nbsp;</strong>AWS S3, AWS EC2, AWS Lambda, AWS AMI,
           AWS IAM
         </p>
         <p>
-          <strong>Tools &amp; Platforms: &nbsp;</strong>Git, Docker, Vercel,
-          Figma, Postman
+          <strong>DevOps &amp; Tools: &nbsp;</strong>Git, Docker, Postman, Cursor IDE, Claude Code, Kiro, Antigravity
         </p>
         <p>
-          <strong>Integrations: &nbsp;</strong>Mapbox, Google Maps API, Meta
-          WhatsApp Cloud API, Matomo Analytics
+          <strong>Integrations: &nbsp;</strong>Meta WhatsApp Cloud API, Matomo
+          Analytics, Google Maps API, Mapbox
         </p>
       </div>
     </div>
@@ -474,26 +465,6 @@
     <!-- PROJECTS & ACHIEVEMENTS -->
     <div class="section">
       <p class="section-title">Projects &amp; Achievements</p>
-
-      <!-- <div class="project-item">
-        <div class="project-header">
-          <span class="project-title"
-            >Trayan Corporation &nbsp;<a
-              href="https://trayancorp.com"
-              style="color: #1a4a8a; font-weight: 400; font-size: 8pt"
-              >trayancorp.com</a
-            ></span
-          >
-          <span class="project-tech">Next.js · App Router · Tailwind CSS</span>
-        </div>
-        <ul>
-          <li>
-            Company profile website for a chemical trading and manufacturing
-            firm built with Next.js App Router; static-optimized for fast load
-            times, SEO, and high Lighthouse scores.
-          </li>
-        </ul>
-      </div> -->
 
       <div class="achievement-item" style="margin-top: 8px">
         <div class="achievement-header">
@@ -507,9 +478,12 @@
         </div>
         <ul>
           <li>
-            Built a role-based employee recognition app using BMAD methodology,
-            AI-assisted development (Cursor IDE), and Clean Architecture with
-            TDD across frontend, backend, and database layers.
+            Architected and delivered a full backend API layer for a role-based
+            employee recognition platform using Node.js and Clean Architecture,
+            with complete TDD coverage across unit, integration, and component
+            layers; applied AI-assisted development with Cursor IDE and BMAD
+            methodology to ship a production-grade backend within a hackathon
+            timeline, earning a Runner-Up finish.
           </li>
         </ul>
       </div>
