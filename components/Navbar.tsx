@@ -66,9 +66,9 @@ export default function Navbar() {
             window.scrollTo({ top: 0, behavior: "smooth" });
             setActiveSection("");
           }}
-          className="font-[var(--font-serif)] text-lg tracking-tight text-[#ede9e3] hover:text-[#d4a853] transition-colors"
+          className="font-[var(--font-serif)] text-xl font-semibold tracking-[0.08em] bg-gradient-to-r from-[#d4a853] to-[#ede9e3] bg-clip-text text-transparent hover:opacity-80 transition-opacity duration-200"
         >
-          AK
+          Akshat Kansara
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
